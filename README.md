@@ -1,6 +1,6 @@
-# myers.online
+# myerscs.lol
 
-My personal website, live at https://myers.online. Plain HTML, CSS and JavaScript, no build step.
+My personal website, live at https://myerscs.lol. Plain HTML, CSS and JavaScript, no build step.
 
 - `index.html`: home page
 - `about.html`: about me

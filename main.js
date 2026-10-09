@@ -47,7 +47,7 @@ function renderChrome() {
   ];
 
   document.getElementById("navbar").innerHTML = `
-    <a href="index.html" class="navbar-brand">myers.online</a>
+    <a href="index.html" class="navbar-brand">myerscs.lol</a>
     <div class="navbar-links">
       ${links
         .map((l) => `<a href="${l.href}" class="navbar-link${l.name === page ? " navbar-link-active" : ""}">${l.name}</a>`)
