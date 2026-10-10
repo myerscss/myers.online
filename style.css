@@ -610,6 +610,30 @@ p {
   }
 }
 
+.navbar-link {
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .navbar {
+    gap: 0.4rem;
+    padding: 0.5rem 0.45rem 0.5rem 0.65rem;
+  }
+
+  .navbar-brand {
+    font-size: 0.8rem;
+  }
+
+  .navbar-links {
+    gap: 0;
+  }
+
+  .navbar-link {
+    padding: 0.4rem 0.35rem;
+    font-size: 0.7rem;
+  }
+}
+
 /* static-site additions */
 
 html {
@@ -657,4 +681,249 @@ html {
 .project-empty {
   color: var(--text-inactive);
   font-weight: 600;
+}
+
+/* coding guide */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.guide-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 2.5rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.guide-section > h2 {
+  margin-bottom: 0;
+}
+
+.guide-section > p {
+  margin-top: 0.4rem;
+}
+
+.guide-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1.15rem;
+  text-align: start;
+
+  background: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 1.15rem;
+}
+
+.guide-card h3 {
+  margin: 0 0 0.6rem;
+  color: var(--text-primary);
+}
+
+.guide-card ul {
+  margin: 0.4rem 0;
+  padding-left: 1.2rem;
+  color: var(--text-inactive);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.guide-card-warning {
+  border-color: #5a3a44;
+}
+
+.guide-note {
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.guide-card code {
+  font-family: Consolas, "Cascadia Code", monospace;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+}
+
+.plugin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.plugin {
+  font-family: Consolas, "Cascadia Code", monospace;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+
+  color: var(--text-primary);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.6rem;
+
+  transition:
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
+}
+
+.plugin:hover {
+  color: var(--accent-color);
+  border-color: var(--border-active);
+}
+
+.plugin-copied,
+.plugin-copied:hover {
+  color: #3ba55d;
+  border-color: #3ba55d;
+}
+
+pre.code {
+  position: relative;
+  margin: 0.5rem 0;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  cursor: pointer;
+
+  background-color: var(--background-color);
+  border: 1px solid var(--border-primary);
+  border-radius: 0.8rem;
+
+  transition: border-color 0.2s ease-in-out;
+}
+
+pre.code:hover {
+  border-color: var(--border-active);
+}
+
+pre.code code {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+pre.code::after {
+  content: "copy";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.7rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-inactive);
+}
+
+pre.code.code-copied {
+  border-color: #3ba55d;
+}
+
+pre.code.code-copied::after {
+  content: "copied!";
+  color: #3ba55d;
+}
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 0.45rem 0.6rem;
+  text-align: start;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.guide-table th {
+  color: var(--text-primary);
+}
+
+.guide-table td {
+  color: var(--text-inactive);
+  font-weight: 500;
+}
+
+.def-search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 1rem;
+
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 1rem;
+  outline: none;
+
+  transition: border-color 0.2s ease-in-out;
+}
+
+.def-search:focus {
+  border-color: var(--accent-color);
+}
+
+.def-search::placeholder {
+  color: var(--text-inactive);
+}
+
+.def-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.def {
+  padding: 0.8rem 0.95rem;
+  text-align: start;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 1rem;
+  min-width: 0;
+}
+
+.def[hidden],
+.def-none[hidden] {
+  display: none;
+}
+
+.def h4 {
+  margin: 0 0 0.3rem;
+  color: var(--accent-color);
+  font-size: 1rem;
+}
+
+.def p {
+  margin: 0;
+  width: 100%;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.def code {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.55rem;
+  overflow-wrap: anywhere;
+
+  font-family: Consolas, "Cascadia Code", monospace;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  background-color: var(--background-color);
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .guide-table code {
+    font-size: 0.75rem;
+    word-break: break-word;
+  }
 }

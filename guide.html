@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myerscs.lol - coding guide</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231b1b24'/><text x='16' y='23' font-family='sans-serif' font-weight='700' font-size='20' text-anchor='middle' fill='%23bc86ca'>m</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="coding guide">
+    <nav class="navbar" id="navbar"></nav>
+    <main class="page-transition">
+      <div class="centered">
+        <h1 style="margin-bottom: 0">Coding <span class="accent-gradient">guide</span></h1>
+        <p>C# stuff for Unity and Gorilla Tag fan games. Click any plugin or code block to copy it.</p>
+
+        <div class="link-container">
+          <a class="link-button" href="#plugins">
+            <div class="link-icon" data-icon="csharp"></div>
+            <div class="link-text-container">
+              <span class="link-text-upper">jump to</span>
+              <span class="link-text-lower">plugin list</span>
+            </div>
+          </a>
+          <a class="link-button" href="#guide">
+            <div class="link-icon" data-icon="unity"></div>
+            <div class="link-text-container">
+              <span class="link-text-upper">jump to</span>
+              <span class="link-text-lower">coding guide</span>
+            </div>
+          </a>
+          <a class="link-button" href="#definitions">
+            <div class="link-icon" data-icon="book"></div>
+            <div class="link-text-container">
+              <span class="link-text-upper">jump to</span>
+              <span class="link-text-lower">definitions</span>
+            </div>
+          </a>
+        </div>
+
+        <section class="guide-section" id="plugins">
+          <h2>C# plugin list</h2>
+          <p>Put these at the top of your script. Only add the ones you need, and the package has to be in your project or you'll get errors.</p>
+
+          <div class="guide-card">
+            <h3>Basic</h3>
+            <p class="guide-note">Always works, nothing to install.</p>
+            <div class="plugin-grid">
+              <button class="plugin" type="button">System</button>
+              <button class="plugin" type="button">System.Collections</button>
+              <button class="plugin" type="button">System.Collections.Generic</button>
+              <button class="plugin" type="button">System.Linq</button>
+              <button class="plugin" type="button">System.IO</button>
+              <button class="plugin" type="button">System.Text</button>
+              <button class="plugin" type="button">System.Threading.Tasks</button>
+              <button class="plugin" type="button">UnityEngine</button>
+              <button class="plugin" type="button">UnityEngine.UI</button>
+              <button class="plugin" type="button">UnityEngine.Events</button>
+              <button class="plugin" type="button">UnityEngine.SceneManagement</button>
+              <button class="plugin" type="button">UnityEngine.Networking</button>
+              <button class="plugin" type="button">UnityEngine.Audio</button>
+              <button class="plugin" type="button">UnityEngine.AI</button>
+              <button class="plugin" type="button">UnityEngine.Rendering</button>
+              <button class="plugin" type="button">UnityEngine.Rendering.Universal</button>
+              <button class="plugin" type="button">UnityEngine.InputSystem</button>
+              <button class="plugin" type="button">TMPro</button>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <h3>VR</h3>
+            <div class="plugin-grid">
+              <button class="plugin" type="button">UnityEngine.XR</button>
+              <button class="plugin" type="button">UnityEngine.XR.Interaction.Toolkit</button>
+              <button class="plugin" type="button">Unity.XR.CoreUtils</button>
+              <button class="plugin" type="button">Unity.XR.Oculus</button>
+              <button class="plugin" type="button">Oculus.Platform</button>
+              <button class="plugin" type="button">Oculus.Platform.Models</button>
+              <button class="plugin" type="button">easyInputs</button>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <h3>Photon</h3>
+            <div class="plugin-grid">
+              <button class="plugin" type="button">Photon.Pun</button>
+              <button class="plugin" type="button">Photon.Realtime</button>
+              <button class="plugin" type="button">Photon.Voice.Unity</button>
+              <button class="plugin" type="button">Photon.Voice.PUN</button>
+              <button class="plugin" type="button">Photon.VR</button>
+              <button class="plugin" type="button">ExitGames.Client.Photon</button>
+              <button class="plugin" type="button">Hashtable = ExitGames.Client.Photon.Hashtable</button>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <h3>Gorilla Tag</h3>
+            <div class="plugin-grid">
+              <button class="plugin" type="button">GorillaLocomotion</button>
+              <button class="plugin" type="button">GorillaNetworking</button>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <h3>PlayFab</h3>
+            <div class="plugin-grid">
+              <button class="plugin" type="button">PlayFab</button>
+              <button class="plugin" type="button">PlayFab.ClientModels</button>
+              <button class="plugin" type="button">PlayFab.Json</button>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <h3>Other</h3>
+            <div class="plugin-grid">
+              <button class="plugin" type="button">Steamworks</button>
+              <button class="plugin" type="button">Newtonsoft.Json</button>
+            </div>
+          </div>
+
+          <div class="guide-card guide-card-warning">
+            <h3>Don't use these</h3>
+            <ul>
+              <li><code>UnityEditor</code> breaks your game when you build it</li>
+              <li><code>System.Windows.Forms</code> doesn't work in Unity</li>
+              <li><code>Microsoft.Xrm.Sdk</code> doesn't work in Unity</li>
+            </ul>
+            <p class="guide-note">Tip: in Visual Studio click the red underlined code and press Ctrl + . and it adds the right one for you.</p>
+          </div>
+        </section>
+
+        <section class="guide-section" id="guide">
+          <h2>Coding guide</h2>
+          <p>The basics you need to start writing scripts in Unity.</p>
+
+          <div class="guide-card">
+            <h3>Basics</h3>
+            <p class="guide-note">Every Unity script looks like this. Your code goes inside the class.</p>
+<pre class="code"><code>using UnityEngine;
+
+public class Player : MonoBehaviour
+{
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+
+    }
+}</code></pre>
+            <ul>
+              <li><code>Start</code> runs once when the game starts</li>
+              <li><code>Update</code> runs every frame</li>
+              <li>The class name has to match the file name</li>
+              <li>Every line ends with <code>;</code></li>
+            </ul>
+          </div>
+
+          <div class="guide-card">
+            <h3>Variables</h3>
+            <p class="guide-note">A variable holds a value. Put them at the top of your class.</p>
+            <table class="guide-table">
+              <tr><th>Type</th><th>Holds</th><th>Example</th></tr>
+              <tr><td>bool</td><td>true or false</td><td><code>bool isAlive = true;</code></td></tr>
+              <tr><td>int</td><td>whole numbers</td><td><code>int coins = 10;</code></td></tr>
+              <tr><td>float</td><td>decimals</td><td><code>float speed = 5.5f;</code></td></tr>
+              <tr><td>double</td><td>big decimals</td><td><code>double money = 1000.75;</code></td></tr>
+              <tr><td>string</td><td>text</td><td><code>string playerName = "Myers";</code></td></tr>
+              <tr><td>enum</td><td>a list of options</td><td><code>GameMode mode = GameMode.Infection;</code></td></tr>
+            </table>
+            <p class="guide-note">Make a variable public or add [SerializeField] to see it in the inspector. Private ones and ones with no word in front are hidden.</p>
+<pre class="code"><code>public float jumpPower = 10f;
+[SerializeField] private int health = 100;
+bool isHidden;</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Bools</h3>
+            <p class="guide-note">The easiest one. It's either true or false.</p>
+<pre class="code"><code>public bool canJump = true;
+bool isDead;
+
+void Start()
+{
+    canJump = false;
+    isDead = true;
+}</code></pre>
+            <p class="guide-note">Flip it with <code>!</code></p>
+<pre class="code"><code>isPaused = !isPaused;</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Ints</h3>
+            <p class="guide-note">Whole numbers. You can add, subtract, multiply and divide them.</p>
+<pre class="code"><code>public int coins = 0;
+
+coins++;
+coins--;
+coins += 10;
+coins -= 10;
+coins *= 2;
+coins /= 2;</code></pre>
+            <p class="guide-note"><code>++</code> and <code>--</code> change it by 1. <code>+=</code> and <code>-=</code> change it by any number you want.</p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Floats</h3>
+            <p class="guide-note">Like ints but with decimals. Always put an f at the end or you'll get an error.</p>
+<pre class="code"><code>public float speed = 1.5f;
+
+speed++;
+speed--;
+speed += 5.5f;
+speed -= 5.5f;
+speed *= Time.deltaTime;</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Doubles</h3>
+            <p class="guide-note">A float with more precision. No f needed, but it uses more memory. Unity mostly uses floats, so you won't need these much.</p>
+<pre class="code"><code>public double money = 1.5;
+
+money += 1.3;
+money -= 1.3;</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Strings</h3>
+            <p class="guide-note">Text. Always in quotes.</p>
+<pre class="code"><code>public string playerName = "Myers";
+
+playerName += "123";
+
+if (string.IsNullOrEmpty(playerName))
+{
+    Debug.Log("No name set");
+}
+
+playerName = playerName.Substring(0, playerName.Length - 1);
+
+int letters = playerName.Length;
+string upper = playerName.ToUpper();</code></pre>
+            <p class="guide-note"><code>Substring</code> here cuts off the last letter. Change the 1 to cut off more. You have to set the string to the result or nothing changes.</p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Enums</h3>
+            <p class="guide-note">A list of options you pick from. Great for game modes, states and menus.</p>
+<pre class="code"><code>public enum GameMode
+{
+    Casual,
+    Infection,
+    Competitive
+}
+
+public GameMode mode = GameMode.Casual;</code></pre>
+            <p class="guide-note">You can give each option a number if you want. If you don't, they go 0, 1, 2 on their own.</p>
+<pre class="code"><code>public enum Rank
+{
+    Bronze = 0,
+    Silver = 1,
+    Gold = 2
+}</code></pre>
+            <p class="guide-note">Use a switch to do different things for each option.</p>
+<pre class="code"><code>switch (mode)
+{
+    case GameMode.Casual:
+        Debug.Log("Casual");
+        break;
+    case GameMode.Infection:
+        Debug.Log("Infection");
+        break;
+}</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Voids</h3>
+            <p class="guide-note">A void is a block of code you can run whenever you want. You call it by its name.</p>
+<pre class="code"><code>void Jump()
+{
+    rb.AddForce(Vector3.up * jumpPower);
+}
+
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        Jump();
+    }
+}</code></pre>
+            <table class="guide-table">
+              <tr><th>Type</th><th>Who can use it</th></tr>
+              <tr><td>void</td><td>only this script (same as private)</td></tr>
+              <tr><td>private void</td><td>only this script</td></tr>
+              <tr><td>public void</td><td>any script, and buttons/events in the inspector</td></tr>
+              <tr><td>protected void</td><td>this script and scripts that inherit from it</td></tr>
+              <tr><td>static void</td><td>no object needed, call it with the class name</td></tr>
+            </table>
+<pre class="code"><code>public void TakeDamage(int amount)
+{
+    health -= amount;
+}
+
+public static void ResetScore()
+{
+    GameManager.score = 0;
+}</code></pre>
+            <p class="guide-note">Other scripts call them like this:</p>
+<pre class="code"><code>player.TakeDamage(10);
+GameManager.ResetScore();</code></pre>
+            <p class="guide-note">If you want a void to give something back, swap void for the type.</p>
+<pre class="code"><code>int GetCoins()
+{
+    return coins;
+}</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Private voids</h3>
+            <p class="guide-note">Only the script it's in can call it. A void with nothing in front is private too.</p>
+<pre class="code"><code>public class Player : MonoBehaviour
+{
+    private void Heal()
+    {
+        health = 100;
+    }
+
+    void Start()
+    {
+        Heal();
+    }
+}</code></pre>
+            <p class="guide-note">Any other script that tries to call <code>Heal()</code> gets an error.</p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Protected voids</h3>
+            <p class="guide-note">Like private, but scripts that inherit from this one can use it too.</p>
+<pre class="code"><code>public class Enemy : MonoBehaviour
+{
+    protected void Die()
+    {
+        Destroy(gameObject);
+    }
+}
+
+public class Zombie : Enemy
+{
+    void Start()
+    {
+        Die();
+    }
+}</code></pre>
+            <p class="guide-note"><code>Zombie</code> can call <code>Die()</code> because it inherits from <code>Enemy</code>. Other scripts can't.</p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Public voids</h3>
+            <p class="guide-note">Any script can call it, but it needs a reference to the object. One easy way is an Instance.</p>
+<pre class="code"><code>public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    public void AddCoin()
+    {
+        coins++;
+    }
+}
+
+public class Coin : MonoBehaviour
+{
+    void OnTriggerEnter(Collider other)
+    {
+        GameManager.Instance.AddCoin();
+    }
+}</code></pre>
+            <p class="guide-note">This only works if there's one GameManager in the scene. You can also drag the object into a public variable in the inspector instead.</p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Static voids</h3>
+            <p class="guide-note">You don't need an object at all. Call it with the class name from any script.</p>
+<pre class="code"><code>public class Score : MonoBehaviour
+{
+    public static int total;
+    public int notStatic;
+
+    public static void AddPoints(int amount)
+    {
+        total += amount;
+    }
+}
+
+Score.AddPoints(5);</code></pre>
+            <p class="guide-note">The catch: a static void can only use static variables. Using <code>notStatic</code> inside <code>AddPoints</code> gives an error.</p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Unity voids</h3>
+            <p class="guide-note">Unity calls these on its own. You just write them.</p>
+            <table class="guide-table">
+              <tr><th>Void</th><th>When it runs</th></tr>
+              <tr><td><code>Awake()</code></td><td>first, as soon as the object loads</td></tr>
+              <tr><td><code>Start()</code></td><td>once, right before the first frame</td></tr>
+              <tr><td><code>Update()</code></td><td>every frame</td></tr>
+              <tr><td><code>LateUpdate()</code></td><td>every frame, after all Updates are done</td></tr>
+              <tr><td><code>FixedUpdate()</code></td><td>on a fixed timer, for physics</td></tr>
+            </table>
+<pre class="code"><code>void Awake()
+{
+    rb = GetComponent&lt;Rigidbody&gt;();
+}
+
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        jumpPressed = true;
+    }
+}
+
+void FixedUpdate()
+{
+    if (jumpPressed)
+    {
+        rb.AddForce(Vector3.up * jumpPower);
+        jumpPressed = false;
+    }
+}
+
+void LateUpdate()
+{
+    cam.position = player.position + offset;
+}</code></pre>
+            <ul>
+              <li>Use <code>Awake</code> to grab components, <code>Start</code> for everything else that sets up</li>
+              <li>Check input in <code>Update</code>, move physics stuff in <code>FixedUpdate</code></li>
+              <li>Cameras that follow the player go in <code>LateUpdate</code> so they don't jitter</li>
+            </ul>
+          </div>
+
+          <div class="guide-card">
+            <h3>If statements</h3>
+<pre class="code"><code>if (health &lt;= 0)
+{
+    Die();
+}
+else if (health &lt; 30)
+{
+    lowHealthUI.SetActive(true);
+}
+else
+{
+    lowHealthUI.SetActive(false);
+}</code></pre>
+            <table class="guide-table">
+              <tr><th>Sign</th><th>Means</th></tr>
+              <tr><td><code>==</code></td><td>equals</td></tr>
+              <tr><td><code>!=</code></td><td>not equal</td></tr>
+              <tr><td><code>&gt;</code> <code>&lt;</code></td><td>bigger / smaller</td></tr>
+              <tr><td><code>&gt;=</code> <code>&lt;=</code></td><td>bigger or equal / smaller or equal</td></tr>
+              <tr><td><code>&amp;&amp;</code></td><td>and</td></tr>
+              <tr><td><code>||</code></td><td>or</td></tr>
+            </table>
+          </div>
+
+          <div class="guide-card">
+            <h3>Triggers</h3>
+            <p class="guide-note">Runs when something touches a collider with Is Trigger on.</p>
+<pre class="code"><code>void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Player"))
+    {
+        coins++;
+    }
+}</code></pre>
+          </div>
+
+          <div class="guide-card">
+            <h3>Common mistakes</h3>
+            <ul>
+              <li>Missing <code>;</code> at the end of a line</li>
+              <li>Using <code>=</code> instead of <code>==</code> in an if</li>
+              <li>Class name not matching the file name</li>
+              <li>Forgetting the f on floats</li>
+              <li>Missing <code>{</code> or <code>}</code></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="guide-section" id="definitions">
+          <h2>Definitions</h2>
+          <p>What all the coding words mean. Search for one or scroll through.</p>
+          <input class="def-search" id="def-search" type="search" placeholder="Search, like lerp or raycast" autocomplete="off" />
+          <p class="project-empty def-none" id="def-none" hidden>Nothing found.</p>
+
+          <div class="def-grid" id="def-grid">
+            <div class="def"><h4>Animator</h4><p>The component that plays animations and switches between them.</p></div>
+            <div class="def"><h4>Array</h4><p>A list with a set size. Starts counting at 0.</p><code>int[] scores = new int[5];</code></div>
+            <div class="def"><h4>Awake</h4><p>Unity void that runs first, as soon as the object loads. Good for GetComponent.</p></div>
+            <div class="def"><h4>AudioSource</h4><p>The component that plays sounds.</p><code>audioSource.Play();</code></div>
+            <div class="def"><h4>Bool</h4><p>A variable that's only true or false.</p><code>bool isGrounded = true;</code></div>
+            <div class="def"><h4>Break</h4><p>Stops a loop or ends a case in a switch.</p></div>
+            <div class="def"><h4>Canvas</h4><p>Holds all your UI like buttons, text and images.</p></div>
+            <div class="def"><h4>Clamp</h4><p>Keeps a number between a min and max.</p><code>health = Mathf.Clamp(health, 0, 100);</code></div>
+            <div class="def"><h4>Class</h4><p>The main container of a script. Your variables and voids go inside it.</p></div>
+            <div class="def"><h4>Collider</h4><p>The invisible shape that lets objects hit each other.</p></div>
+            <div class="def"><h4>Component</h4><p>Anything added to a GameObject, like a Rigidbody, Collider or your own script.</p></div>
+            <div class="def"><h4>Coroutine</h4><p>A void that can wait before doing the next thing.</p><code>yield return new WaitForSeconds(2f);</code></div>
+            <div class="def"><h4>Debug.Log</h4><p>Prints a message to the console. Best way to check if code is running.</p><code>Debug.Log("it works");</code></div>
+            <div class="def"><h4>Destroy</h4><p>Deletes an object from the scene.</p><code>Destroy(gameObject);</code></div>
+            <div class="def"><h4>Double</h4><p>A decimal number with more precision than a float. Uses more memory.</p><code>double money = 10.5;</code></div>
+            <div class="def"><h4>Enum</h4><p>A list of named options you pick from.</p><code>enum State { Idle, Run, Jump }</code></div>
+            <div class="def"><h4>Float</h4><p>A decimal number. Needs an f at the end.</p><code>float speed = 5.5f;</code></div>
+            <div class="def"><h4>For loop</h4><p>Repeats code a set number of times.</p><code>for (int i = 0; i &lt; 10; i++) { }</code></div>
+            <div class="def"><h4>Foreach</h4><p>Runs code once for every item in a list or array.</p><code>foreach (GameObject e in enemies) { }</code></div>
+            <div class="def"><h4>FixedUpdate</h4><p>Unity void that runs on a fixed timer. Use it for physics.</p></div>
+            <div class="def"><h4>GameObject</h4><p>Any object in your scene. Everything in the Hierarchy is one.</p></div>
+            <div class="def"><h4>GetComponent</h4><p>Grabs a component from an object so you can use it in code.</p><code>rb = GetComponent&lt;Rigidbody&gt;();</code></div>
+            <div class="def"><h4>Hierarchy</h4><p>The window that lists every object in your scene.</p></div>
+            <div class="def"><h4>If statement</h4><p>Only runs code if something is true.</p><code>if (health &lt;= 0) { Die(); }</code></div>
+            <div class="def"><h4>Inheritance</h4><p>When a class takes everything from another class and adds its own stuff.</p><code>class Zombie : Enemy</code></div>
+            <div class="def"><h4>Input</h4><p>Checks keys, mouse and buttons.</p><code>Input.GetKeyDown(KeyCode.E)</code></div>
+            <div class="def"><h4>Inspector</h4><p>The window that shows an object's components and public variables.</p></div>
+            <div class="def"><h4>Instance</h4><p>A static reference to a script so other scripts can reach it easily.</p><code>GameManager.Instance.AddCoin();</code></div>
+            <div class="def"><h4>Instantiate</h4><p>Spawns a copy of an object or prefab.</p><code>Instantiate(bullet, firePoint.position, firePoint.rotation);</code></div>
+            <div class="def"><h4>Int</h4><p>A whole number with no decimals.</p><code>int coins = 10;</code></div>
+            <div class="def"><h4>Invoke</h4><p>Calls a void after a delay.</p><code>Invoke("Respawn", 3f);</code></div>
+            <div class="def"><h4>Layer</h4><p>A group you put objects in so raycasts, cameras and physics can ignore or only hit certain ones.</p></div>
+            <div class="def"><h4>LateUpdate</h4><p>Unity void that runs every frame after all Updates. Good for cameras.</p></div>
+            <div class="def"><h4>Lerp</h4><p>Smoothly moves between two values. The last number is how far between them, from 0 to 1.</p><code>transform.position = Vector3.Lerp(a, b, 0.5f);</code></div>
+            <div class="def"><h4>List</h4><p>Like an array but you can add and remove items.</p><code>List&lt;string&gt; names = new List&lt;string&gt;();</code></div>
+            <div class="def"><h4>MonoBehaviour</h4><p>What your scripts inherit from so they can go on objects and use Start and Update.</p></div>
+            <div class="def"><h4>Null</h4><p>Means nothing is there. The variable isn't set to anything.</p></div>
+            <div class="def"><h4>NullReferenceException</h4><p>The most common error. You tried to use something that's null, usually a variable you forgot to set.</p></div>
+            <div class="def"><h4>OnCollisionEnter</h4><p>Unity void that runs when two solid colliders hit.</p></div>
+            <div class="def"><h4>OnTriggerEnter</h4><p>Unity void that runs when something enters a trigger collider.</p></div>
+            <div class="def"><h4>PhotonView</h4><p>The Photon component that syncs an object across the network.</p></div>
+            <div class="def"><h4>Prefab</h4><p>A saved object you can reuse and spawn as many times as you want.</p></div>
+            <div class="def"><h4>Private</h4><p>Only the same script can use it.</p></div>
+            <div class="def"><h4>Protected</h4><p>The same script and scripts that inherit from it can use it.</p></div>
+            <div class="def"><h4>Public</h4><p>Any script can use it, and it shows in the inspector.</p></div>
+            <div class="def"><h4>Quaternion</h4><p>How Unity stores rotation. Use Euler to work with normal angles.</p><code>Quaternion.Euler(0, 90, 0)</code></div>
+            <div class="def"><h4>Raycast</h4><p>Shoots an invisible line and tells you what it hits. Used for guns, ground checks and pointing.</p><code>Physics.Raycast(origin, direction, out RaycastHit hit, 100f)</code></div>
+            <div class="def"><h4>Return</h4><p>Ends a void and can send a value back.</p><code>return health;</code></div>
+            <div class="def"><h4>Rigidbody</h4><p>Gives an object physics like gravity and forces.</p><code>rb.AddForce(Vector3.up * 5f);</code></div>
+            <div class="def"><h4>RPC</h4><p>A Photon call that runs a void on every player's game.</p><code>photonView.RPC("Jump", RpcTarget.All);</code></div>
+            <div class="def"><h4>Scene</h4><p>A level or menu. Your game is made of scenes.</p><code>SceneManager.LoadScene("Lobby");</code></div>
+            <div class="def"><h4>ScriptableObject</h4><p>A data file you make from a script. Good for items, weapons and settings.</p></div>
+            <div class="def"><h4>SerializeField</h4><p>Shows a private variable in the inspector.</p><code>[SerializeField] private int ammo;</code></div>
+            <div class="def"><h4>SetActive</h4><p>Turns an object on or off.</p><code>menu.SetActive(false);</code></div>
+            <div class="def"><h4>Slerp</h4><p>Like Lerp but for rotations or directions. Moves along a curve.</p><code>Quaternion.Slerp(a, b, t)</code></div>
+            <div class="def"><h4>Start</h4><p>Unity void that runs once before the first frame.</p></div>
+            <div class="def"><h4>Static</h4><p>Belongs to the class, not an object. Call it with the class name.</p><code>Score.AddPoints(5);</code></div>
+            <div class="def"><h4>String</h4><p>Text. Always goes in quotes.</p><code>string name = "Myers";</code></div>
+            <div class="def"><h4>Switch</h4><p>Runs different code depending on a value. Cleaner than lots of ifs.</p></div>
+            <div class="def"><h4>Tag</h4><p>A name you give objects so code can tell what they are.</p><code>other.CompareTag("Player")</code></div>
+            <div class="def"><h4>Time.deltaTime</h4><p>Time since the last frame. Multiply by it so movement is the same on every FPS.</p><code>speed * Time.deltaTime</code></div>
+            <div class="def"><h4>Time.timeScale</h4><p>How fast the game runs. 0 pauses, 1 is normal.</p><code>Time.timeScale = 0f;</code></div>
+            <div class="def"><h4>Transform</h4><p>An object's position, rotation and scale.</p><code>transform.position</code></div>
+            <div class="def"><h4>Trigger</h4><p>A collider with Is Trigger on. Things pass through it but it still detects them.</p></div>
+            <div class="def"><h4>Update</h4><p>Unity void that runs every frame.</p></div>
+            <div class="def"><h4>Using</h4><p>The lines at the top of a script that let you use a library, like a plugin.</p><code>using UnityEngine;</code></div>
+            <div class="def"><h4>Variable</h4><p>Holds a value you can use and change, like a number or text.</p></div>
+            <div class="def"><h4>Vector3</h4><p>Three numbers: x, y and z. Used for positions, directions and scale.</p><code>new Vector3(0, 1, 0)</code></div>
+            <div class="def"><h4>Void</h4><p>A block of code you can call by name. Also called a function or method.</p></div>
+            <div class="def"><h4>While loop</h4><p>Keeps repeating while something is true. Careful, it can freeze Unity if it never stops.</p></div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer" id="footer"></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
